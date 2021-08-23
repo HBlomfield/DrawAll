@@ -1,0 +1,85 @@
+.btn:focus {
+	outline:none !important;
+	box-shadow: none!important;
+}
+.bg-black {
+	background:black;
+}
+nav button {
+	color:gray !important;
+}
+nav button.active {
+	color: #0DCAF0 !important;
+}
+.h-auto {
+	height:auto !important;
+}
+.p-31-64 {
+	padding-top:31px !important;
+	padding-bottom:43px !important;
+	/* 64px with the labels */
+}
+/* .p-31-64 {
+	padding-top:31px !important;
+	padding-bottom:40px !important;
+} */
+.pb-64 {
+	padding-bottom:43px !important;
+}
+.max-lines-2 {	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;  
+	overflow: hidden;
+}
+.max-lines-3 {	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;  
+	overflow: hidden;
+}
+#ExploreSearch {
+	transition: height .2s;
+	overflow:hidden;
+}
+
+#ExploreSearch.Expand {
+	height:172px;
+	/* height:max-content; */
+}
+
+#ExploreSearch.Contract {
+	height:47px;
+}
+
+.PageClose {
+	/* animation: pageClose .2s; */
+	/* animation-fill-mode: forwards; */
+	pointer-events: none;
+	display:none;
+}
+
+.PageOpen {
+	/* animation: pageOpen .2s; */
+	/* animation-fill-mode: forwards; */
+	display:block;
+
+}
+*[hidden=""] {
+	pointer-events: none;;
+}
+#GlobalBackButton:disabled {
+	opacity:0;
+}
+/* #MainCanvas {
+	/* height:auto; */
+	/* width: 500px; */
+	/* transform:rotate(90deg); 
+}
+	*/
+/* @keyframes pageOpen {
+	from {opacity:0%;display:block;}
+	to {opacity: 100%;display:block;}
+}
+@keyframes pageClose {
+	from{opacity: 100%;display:block;}
+	to {opacity:0%;display:block;}
+} */

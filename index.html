@@ -1,0 +1,236 @@
+<!-- 
+    x Demonstrated use of a layout framework suitable for developing a mobile app
+    x Confirm framework is compatible with the business requirements defined first assessment in Project implementation cluster (PROJ1)
+    x Renders HTML/CSS/JS as output
+    x Uses JavaScript components to accomplish design/functional goals
+    ? Suitable for interactions to be activated by the client
+
+PART B
+
+    x Mobile-only design
+    x Design incorporates faked search results
+    x Design shows at least one example of a non-working web form
+    x Content delivered from a single instances of html/css/js
+    Settings Panel for user preferences
+    Functionality demonstrated to teacher on a mobile phone
+    x Code generated contains named objects and/or functions
+
+PART C
+
+    x Describe the scope of the project that this prototype relates to
+    x Describe why prototyping tool chosen was the best for the outlined task
+    x Write three paragraphs each for how you think the tool has handled the rendering of all CSS/HTML and JavaScript code
+    x Conclusion as to how you might be able to use some of the components the tool has rendered going forward to UX2
+    x Document the licensing and/or costs associated with your chosen tool
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="chibi-min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="style.css">
+	<script src="main.js" defer></script>
+</head>
+
+<body class="bg-dark">
+	<!-- #region global elements-->
+	<header class="sticky-top bg-dark text-white">
+		<div class="p-2 row w-100 mx-auto">
+			<button id="GlobalBackButton" class=" col-2 btn btn-sm btn-outline-info " onclick="OpenExplore();"><i class="bi bi-arrow-left"></i></button>
+			<div id="GlobalPageTitle" class="text-center col-8">Explore</div>
+		</div>
+		<div id="ExploreSearch" class="Contract bg-dark text-white container-fluid sticky-top p-0 w-100 g-0 position-relative">
+			<div class="btn-group btn-group-sm w-100 p-2">
+				<button class="btn btn-outline-info active" id="ExploreSegmentPosts" onclick="ExploreSegment(true)">Posts</button>
+				<button class="btn btn-outline-info" id="ExploreSegmentGroups" onclick="ExploreSegment(false)">Groups</button>
+			</div>
+			<div class="row w-100 g-0 px-2 py-2">
+				<div class="col-12 pb-2"><input type="search" class="form-control form-control-sm"></div>
+				<div class="col-6 pb-2">Topic</div>
+				<div class="col-6 pb-2"><button class="btn btn-sm btn-outline-info w-100">Topic Name</button></div>
+				<div class="col-6">Sort By</div>
+				<div class="col-6"><button class="btn btn-sm btn-outline-info w-100">Topic Name</button></div>
+			</div>
+		</div>
+		<button id="ExploreToggleSearch" class="btn btn-info btn-sm rounded-0 w-100 position-absolute top-100 start-0" onclick="ToggleExploreSearch ()">Open search</button>
+	</header>
+	<nav class="fixed-bottom bg-dark row">
+		<button id="ExploreButton" onclick="OpenExplore();" class="btn btn-sm py-1 col-3  active"><i class="bi bi-compass-fill d-block" style="font-size:22px;"></i></button>
+		<button id="GroupsButton" onclick="OpenGroups();" class="btn btn-sm py-1 col-3 "><i class="bi bi-house-fill d-block" style="font-size:22px;"></i></button>
+		<button id="DrawButton" onclick="OpenDraw();" class="btn btn-sm py-1 col-3 "><i class="bi bi-pencil-fill d-block" style="font-size:22px;"></i></button>
+		<button id="AccountButton" onclick="OpenAccount();" class="btn btn-sm py-1 col-3 "><i class="bi bi-person-fill d-block" style="font-size:22px;"></i></button>
+	</nav>
+	<!-- #endregion -->
+	<section id="ExplorePage">
+		<section id="ExplorePosts" class="p-31-64">
+
+		</section>
+
+		<section id="ExploreGroups" class="p-31-64">
+			<div class="my-2 bg-light" onclick="OpenGroup (0)">
+				<h3 class="ps-2 pe-2 pt-2 mb-2">ABC Club</h3>
+				<p class="ps-2 pe-2 mb-2 max-lines-2">Club for members of the abc club in brisbane which doesn't do anything and is madeup. Maybe they play gold on the weekend or go to the gym, who knows what they're doing right now</p>
+				<div class="border-top p-2"><i class="bi bi-person-fill pe-2"></i>
+					<span class="pe-2">32 members</span>
+					<i class="bi bi-pencil-fill pe-2"></i>
+					<span>594 posts</span></div>
+			</div>
+			<div class="my-2 p-2 bg-light">
+				<h3 class="">Lorem Ipsum Appreciation club</h3>
+				<p class="max-lines-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio earum possimus doloribus id voluptates maiores repudiandae pariatur ullam, ipsa, perspiciatis minima recusandae obcaecati quibusdam
+					quaerat ducimus officia consectetur officiis libero?</p>
+				<div class="border-top pt-2"><i class="bi bi-person-fill pe-2"></i>
+					<span class="pe-2">32 members</span>
+					<i class="bi bi-pencil-fill pe-2"></i>
+					<span>594 posts</span></div>
+			</div>
+			<div class="my-2 p-2 bg-light">
+				<h3 class="">ABC Club</h3>
+				<p class="max-lines-2">Club for members of the abc club in brisbane which doesn't do anything and is madeup. Maybe they play gold on the weekend or go to the gym, who knows what they're doing right now</p>
+				<div class="border-top pt-2"><i class="bi bi-person-fill pe-2"></i>
+					<span class="pe-2">32 members</span>
+					<i class="bi bi-pencil-fill pe-2"></i>
+					<span>594 posts</span></div>
+			</div>
+		</section>
+	</section>
+	<section id="PostInfoPage" class="bg-light">
+		<div class="p-2">
+			<img src="placeholder-user.png" width="32" height="32"> Kyl3
+		</div>
+		<div class="px-2 mb-2 h5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi, assumenda quisquam fuga minus suscipit, blanditiis saepe totam dignissimos maiores quasi incidunt nisi odit deleniti error vel itaque
+			tenetur quaerat! Eligendi.</div>
+		<div class="border-top border-bottom">
+			<img src="placeholder-drawing-1.jpg" class="w-100">
+		</div>
+		<div class="p-2 font-weight-bold h5 mb-0">Replies (51)</div>
+		<div class="p-2 pb-0">
+			<div class="pb-2"><button class="btn btn-sm btn-info">Write a Comment</button> or <button class="btn btn-sm btn-info">Draw a Response</button></div>
+
+			<!-- <div class="input-group input-group-sm mb-2">
+				<input type="text" class="form-control" aria-label="" placeholder="Please be respectful and constructive.">
+				<span class="input-group-text p-0">
+					<input class="btn btn-sm btn-info" type="button" value="Submit">
+				</span>
+			</div> -->
+		</div>
+		<div id="PostReplies" class="pb-64 pt-0">
+
+		</div>
+	</section>
+	<section id="GroupPage">
+		<section id="MyGroups" class="pb-64">
+			<div class="mb-2 bg-light" onclick="OpenGroup (0)">
+				<h3 class="ps-2 pe-2 pt-2 mb-2">ABC Club</h3>
+				<p class="ps-2 pe-2 mb-2 max-lines-2">Club for members of the abc club in brisbane which doesn't do anything and is madeup. Maybe they play gold on the weekend or go to the gym, who knows what they're doing right now</p>
+				<div class="border-top p-2"><i class="bi bi-person-fill pe-2"></i>
+					<span class="pe-2">32 members</span>
+					<i class="bi bi-pencil-fill pe-2"></i>
+					<span>594 posts</span></div>
+			</div>
+			<div class="my-2 p-2 bg-light">
+				<h3 class="">Lorem Ipsum Appreciation club</h3>
+				<p class="max-lines-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio earum possimus doloribus id voluptates maiores repudiandae pariatur ullam, ipsa, perspiciatis minima recusandae obcaecati quibusdam
+					quaerat ducimus officia consectetur officiis libero?</p>
+				<div class="border-top pt-2"><i class="bi bi-person-fill pe-2"></i>
+					<span class="pe-2">32 members</span>
+					<i class="bi bi-pencil-fill pe-2"></i>
+					<span>594 posts</span></div>
+			</div>
+			<div class="my-2 p-2 bg-light">
+				<h3 class="">ABC Club</h3>
+				<p class="max-lines-2">Club for members of the abc club in brisbane which doesn't do anything and is madeup. Maybe they play gold on the weekend or go to the gym, who knows what they're doing right now</p>
+				<div class="border-top pt-2"><i class="bi bi-person-fill pe-2"></i>
+					<span class="pe-2">32 members</span>
+					<i class="bi bi-pencil-fill pe-2"></i>
+					<span>594 posts</span></div>
+			</div>
+			<div class="my-2 bg-light" onclick="OpenGroup (0)">
+				<h3 class="ps-2 pe-2 pt-2 mb-2">ABC Club</h3>
+				<p class="ps-2 pe-2 mb-2 max-lines-2">Club for members of the abc club in brisbane which doesn't do anything and is madeup. Maybe they play gold on the weekend or go to the gym, who knows what they're doing right now</p>
+				<div class="border-top p-2"><i class="bi bi-person-fill pe-2"></i>
+					<span class="pe-2">32 members</span>
+					<i class="bi bi-pencil-fill pe-2"></i>
+					<span>594 posts</span></div>
+			</div>
+			<div class="my-2 p-2 bg-light">
+				<h3 class="">Lorem Ipsum Appreciation club</h3>
+				<p class="max-lines-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio earum possimus doloribus id voluptates maiores repudiandae pariatur ullam, ipsa, perspiciatis minima recusandae obcaecati quibusdam
+					quaerat ducimus officia consectetur officiis libero?</p>
+				<div class="border-top pt-2"><i class="bi bi-person-fill pe-2"></i>
+					<span class="pe-2">32 members</span>
+					<i class="bi bi-pencil-fill pe-2"></i>
+					<span>594 posts</span></div>
+			</div>
+			<div class="my-2 p-2 bg-light">
+				<h3 class="">ABC Club</h3>
+				<p class="max-lines-2">Club for members of the abc club in brisbane which doesn't do anything and is madeup. Maybe they play gold on the weekend or go to the gym, who knows what they're doing right now</p>
+				<div class="border-top pt-2"><i class="bi bi-person-fill pe-2"></i>
+					<span class="pe-2">32 members</span>
+					<i class="bi bi-pencil-fill pe-2"></i>
+					<span>594 posts</span></div>
+			</div>
+		</section>
+	</section>
+	<section id="DrawPage" class="pb-64">
+		<div class="">
+			<img src="placeholder-drawing-4.jpg" id="MainCanvas" class="w-100">
+		</div>
+		<div class="p-2">
+			<button class="float-left btn btn-sm btn-outline-info me-2" onclick="RotateCanvas()"><i class="bi bi-arrow-clockwise"></i></button>
+			<button class="float-left btn btn-sm btn-outline-info" onclick=""><i class="bi bi-circle-fill" style="font-size:5px"></i></button>
+			<button class="float-left btn btn-sm btn-outline-info" onclick=""><i class="bi bi-circle-fill" style="font-size:10px"></i></button>
+			<button class="float-left btn btn-sm btn-outline-info me-2" onclick=""><i class="bi bi-circle-fill" style="font-size:15px"></i></button>
+			<button class="float-left btn btn-sm btn-danger">&nbsp;</button>
+			<button class="float-left btn btn-sm btn-warning">&nbsp;</button>
+			<button class="float-left btn btn-sm btn-success">&nbsp;</button>
+			<button class="float-left btn btn-sm btn-info">&nbsp;</button>
+			<button class="float-left btn btn-sm btn-primary">&nbsp;</button>
+		</div>
+		<div class="p-2 pt-4 text-secondary text-center h3">
+			<i class="bi bi-phone"></i>
+			<i class="bi bi-arrow-right"></i>
+			<i class="bi bi-phone-landscape"></i>
+			<div class="h5">Rotate your device for a better view</div>
+		</div>
+	</section>
+	<section id="AccountPage" class="pb-64">
+		<div class="text-white p-2">You are not currently signed in</div>
+		<form class="p-2 mb-5 text-center">
+			<div class="text-white">Username</div>
+			<input type="username" class="form-control form-control-sm mb-3">
+			<div class="text-white">Password</div>
+			<input type="password" class="form-control form-control-sm mb-3">
+			<input type="submit" class="btn btn-sm btn-info" value="Log In">
+		</form>
+		<div class="text-white text-center">Account Settings</div>
+		<form class="p-2 w-100 mx-auto">
+			<div class="text-white">Change Username</div>
+			<div class="input-group input-group-sm mb-2">
+				<input type="text" class="form-control" aria-label="" placeholder="Only use letters and symbols (-_+.$)">
+				<span class="input-group-text p-0">
+					<input class="btn btn-sm btn-info" type="button" value="Submit">
+				</span>
+			</div>
+			<div class="text-secondary">Attention: Your username may only be changed once per month.</div>
+
+		</form>
+		<form class="p-2 w-100 mx-auto">
+			<div class="text-white">Change Password</div>
+			<input type="password" class="form-control form-control-sm">
+			<div class="text-white">Confirm Password</div>
+			<input type="password" class="form-control form-control-sm">
+			<input class="btn btn-sm btn-info my-3" type="submit" value="Change Password">
+		</form>
+	</section>
+
+</body>
+
+</html>
